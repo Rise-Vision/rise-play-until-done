@@ -72,12 +72,12 @@ jobs:
           key: node-cache-{{ checksum "package.json" }}
       - run: mkdir -p ~/.config
       - run: cp -r gcloud ~/.config
-      - run: npm install common-component
+      - run: npm install rise-common-component
       - run: |
           VERSION=$(cat version-string/version)
           TARGET=$WIDGETS_BASE/staging/components/rise-play-until-done/$VERSION/
           echo Deploying version $VERSION to rise-play-until-done
-          node_modules/common-component/deploy-gcs.sh rise-play-until-done $TARGET
+          node_modules/rise-common-component/deploy-gcs.sh rise-play-until-done $TARGET
 
   deploy-production:
     parameters:
@@ -92,11 +92,11 @@ jobs:
           key: node-cache-{{ checksum "package.json" }}
       - run: mkdir -p ~/.config
       - run: cp -r gcloud ~/.config
-      - run: npm install common-component
+      - run: npm install rise-common-component
       - run: |
           TARGET=$WIDGETS_BASE/<< parameters.stage >>/components/rise-play-until-done/
           echo Deploying << parameters.stage >> version of rise-play-until-done
-          node_modules/common-component/deploy-gcs.sh rise-play-until-done $TARGET
+          node_modules/rise-common-component/deploy-gcs.sh rise-play-until-done $TARGET
 
 workflows:
   workflow1:
