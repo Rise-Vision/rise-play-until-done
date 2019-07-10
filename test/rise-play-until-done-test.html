@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>rise-text test</title>
+
+    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="../node_modules/@polymer/test-fixture/test-fixture.js"></script>
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="../node_modules/chai/chai.js"></script>
+    <script src="../node_modules/sinon/pkg/sinon.js"></script>
+    <script src="../node_modules/wct-mocha/wct-mocha.js"></script>
+
+    <script type="text/javascript">
+      RisePlayerConfiguration = {
+        isConfigured: () => true
+      };
+    </script>
+
+    <script type="module" src="../src/rise-play-until-done.js"></script>
+  </head>
+  <body>
+
+    <test-fixture id="TestFixture">
+      <template>
+        <rise-play-until-done></rise-play-until-done>
+      </template>
+    </test-fixture>
+
+    <script type="module">
+      suite('rise-play-until-done', () => {
+        const sandbox = sinon.createSandbox();
+
+        teardown(() => sandbox.restore());
+
+        test('should send "report-done" event when reportDone is called', () => {
+          const element = fixture('TestFixture');
+
+          sandbox.stub(element.__proto__.__proto__, '_sendEvent')
+
+          element.reportDone();
+
+          assert.isTrue( element._sendEvent.calledWith("report-done", { done: true }));
+        });
+
+      });
+    </script>
+
+  </body>
+</html>
