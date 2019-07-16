@@ -21,6 +21,20 @@ The component sends the following events:
 
 - **_configured_**: The component has initialized what it requires to and is ready to handle a _start_ event.
 
+### Usage
+
+Include the `<rise-play-until-done>` tag in the document and call `reportDone()` when necessary (on animation end, on data error, etc):
+
+```
+  <rise-play-until-done id="animation-done">
+  </rise-play-until-done>
+
+  <script>
+    const doneElement = document.getElementById('animation-done');
+    doneElement.reportDone();
+  </script>
+```
+
 ## Built With
 - [Polymer 3](https://www.polymer-project.org/)
 - [Polymer CLI](https://github.com/Polymer/tools/tree/master/packages/cli)
@@ -50,15 +64,6 @@ Execute the following command in Terminal to run tests:
 
 ```
 npm run test
-```
-
-#### Local Server
-Run the following command in Terminal: `polymer serve`.
-
-Now in your browser, navigate to:
-
-```
-http://127.0.0.1:8081/components/rise-slides/demo/src/rise-slides-dev.html
 ```
 
 ## Submitting Issues

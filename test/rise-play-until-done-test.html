@@ -38,11 +38,11 @@
         test('should send "report-done" event when reportDone is called', () => {
           const element = fixture('TestFixture');
 
-          sandbox.stub(element.__proto__.__proto__, '_sendEvent')
+          sandbox.stub(element.__proto__.__proto__, '_sendDoneEvent')
 
           element.reportDone();
 
-          assert.isTrue( element._sendEvent.calledWith("report-done", { done: true }));
+          assert.isTrue( element._sendDoneEvent.calledWith( true ));
         });
 
       });

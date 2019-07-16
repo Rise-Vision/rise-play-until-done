@@ -11,7 +11,7 @@ export default class RisePlayUntilDone extends RiseElement {
   }
 
   reportDone() {
-    super._sendEvent( "report-done", {done: true});
+    super._sendDoneEvent( true );
   }
 
 }
