@@ -7,7 +7,6 @@ export default class RisePlayUntilDone extends RiseElement {
     super();
 
     this._setVersion( version );
-    this.setAttribute("play-until-done", true);
   }
 
   reportDone() {
