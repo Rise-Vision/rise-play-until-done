@@ -1,4 +1,4 @@
-# rise-play-until-done [![CircleCI](https://circleci.com/gh/Rise-Vision/rise-play-until-done.svg?style=svg)](https://circleci.com/gh/Rise-Vision/rise-play-until-done)
+# rise-play-until-done [![CircleCI](https://circleci.com/gh/Rise-Vision/rise-play-until-done.svg?style=svg)](https://circleci.com/gh/Rise-Vision/rise-play-until-done) [![Coverage Status](https://coveralls.io/repos/github/Rise-Vision/rise-play-until-done/badge.svg?branch=master)](https://coveralls.io/github/Rise-Vision/rise-play-until-done?branch=master)
 
 `rise-play-until-done` is a Polymer 3 Web Component that enables the template designer to controls when the template is done.
 
@@ -64,6 +64,12 @@ Execute the following command in Terminal to run tests:
 
 ```
 npm run test
+```
+
+In case `polymer-cli` was installed globally, the `wct-istanbul` package will also need to be installed globally:
+
+```
+npm install -g wct-istanbul
 ```
 
 ## Submitting Issues
